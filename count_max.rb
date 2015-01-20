@@ -16,14 +16,16 @@ require_relative './max'
 require_relative './count_in_list'
 
 def count_max(list)
-  # You can write this using nothing more than the max and count_in_list
-  # methods that you've already written.  You do not HAVE to, but it's worth
-  # trying. The "requite_relative" statements above make them available to us, here.
-  #
-  # But remember: inelegant, working code is better than elegant, unfinished code.
+	max = max(list)
+	count = count_in_list(list, max)
+
+	count
 end
 
 if __FILE__ == $0
-  # I'd advise putting some sanity checks here.
-  # How else will you be sure your code does what you think it does?
+  p count_max([1,2,3])  == 1
+  p count_max([1,2,3, 3, 3]) == 3
+  p count_max([1,1,1])  == 3
+  p count_max([-1,-2,-3])  == 1
+  p count_max([-1,-1, -2,-3])  == 2
 end
