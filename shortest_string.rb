@@ -4,10 +4,22 @@
 # Prints:      Nothing
 
 def shortest_string(list)
-  # This is your job. :)
+	shortest = list.first
+	list.each do |current_str|
+		if current_str.length < shortest.length
+			shortest = current_str
+		end
+	end
+
+	shortest
 end
 
 if __FILE__ == $0
-  # I'd advise putting some sanity checks here.
-  # How else will you be sure your code does what you think it does?
+  p shortest_string(["a","zzzz","c"]) == "a"
+  p shortest_string(["hello","goodbye","hola"]) == "hola"
+  p shortest_string(["a","b","c"]) == "a"
+  p shortest_string(["a"]) == "a"
+  p shortest_string(["hello"]) == "hello"
+  p shortest_string(["supercalafragilicious","superawesome","super"]) == "super"
+  p shortest_string([""]) == ""
 end
