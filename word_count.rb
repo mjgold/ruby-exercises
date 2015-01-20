@@ -9,8 +9,8 @@
 # that there is at least one.
 
 def word_count(string)
-  # Hint: You'll want to use String#split
-  # See: http://www.ruby-doc.org/core-2.1.2/String.html#method-i-split
+  string_arr = string.split  
+  string_arr.size 
 end
 
 if __FILE__ == $0
@@ -21,7 +21,11 @@ if __FILE__ == $0
   p word_count("No-spaces-here") == 1
   p word_count("") == 0  # Empty string
   p word_count(" ") == 0 # A string consisting of a single space
-
+  p word_count("   ") == 0 # A string consisting of multiple spaces
+  p word_count("How many words is less clear-cut?") == 6
+  p word_count("It's a case of 'he said, she said'.") == 8
+  p word_count("  Hi, there!") == 2
+  
   # It's probably worth having a few more sanity checks.
   # What are some input strings that might be tricky to handle?
   # How about where the answer to "How many words?" is less clear-cut?
