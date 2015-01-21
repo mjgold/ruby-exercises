@@ -21,25 +21,36 @@ def print_line(count)
   print "\n"          # This forces the output to the next like, like hitting "return" on the keyboard
 end
 
-def print_triangle(height)
-  # You have to fill in the details here.
+# Print a triangle. Defaults to ascending (smallest on top). Can be set to descending.
+def print_triangle(height, order="asc")
+  if order == "asc" || order != "desc"
+    (1..height).each do |i|
+      print_line(i)
+    end
+  elsif order == "desc"
+    i = height
+    while i > 0 
+      print_line(i)
+      i -= 1
+    end  
+  end
 end
 
 # There are no rumble strips this time.  It's up to you to decide whether
 # this is working as intended or not.
 
 if __FILE__ == $0
-  print_triangle(1)
+  print_triangle(1, "asc")
 
   print "\n\n\n" # This is here just to make the separation between triangles clearer
 
-  print_triangle(2)
+  print_triangle(2, "asc")
 
   print "\n\n\n" # This is here just to make the separation between triangles clearer
 
-  print_triangle(3)
+  print_triangle(3, "asc")
 
   print "\n\n\n" # This is here just to make the separation between triangles clearer
 
-  print_triangle(10)
+  print_triangle(10, "asc")
 end

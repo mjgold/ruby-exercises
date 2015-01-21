@@ -23,10 +23,15 @@ require_relative './sum'
 
 def mean(list)
   total = sum(list) # This is the "sum" method from our sum.rb file
-  # result = ____   # Given we have the sum of the list, how can we calculate the average?
+  mean = total.to_f/list.size
+
+  mean
 end
 
 if __FILE__ == $0
-  # I'd advise putting some sanity checks here.
-  # How else will you be sure your code does what you think it does?
+  p mean([0, 10, 0, 20]) == 7.5
+  p mean([-111, -111, -111]) == -111
+  p mean([11,22,33]) == 22
+  p mean([-40, -15, 0, 30, 1000]) == 195
+  p mean([0.5,1.5,4.5]) == 2.1666666666666665
 end

@@ -26,7 +26,7 @@ end
 # to call the print_line method we've defined to help us print out a square.
 def print_square(dimension)
   (1..dimension).each do |i| # or, equivalently, for i in (1..dimension)
-    print_line(____)         # Fill in the blank, here.
+    print_line(dimension)         # Fill in the blank, here.
   end
 end
 
@@ -46,5 +46,5 @@ if __FILE__ == $0
 
   print "\n\n\n" # This is here just to make the separation between squares clearer
 
-  print_square(10)
+  print_square(5)
 end
