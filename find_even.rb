@@ -10,6 +10,12 @@
 #  find_even([10,10,10,11,11,11]) == [10,10,10]
 
 def find_even(array)
+  result = []
+  array.map do |num|
+    result << num if num.even?
+  end
+
+  result
 end
 
 # Note #1
@@ -47,6 +53,10 @@ if __FILE__ == $0
   # If the input array contains all EVEN numbers,
   #   find_even should return the input array
   p find_even([2,4,6,8,10]) == [2,4,6,8,10]
+  p find_even([1,2,3,4,5,6]) == [2,4,6]
+  p find_even([2,2,5,5,4,4]) == [2,2,4,4]
+  p find_even([1,3,5]) == []
+  p find_even([-1,-2,-3,-4]) == [-2,-4]
 
   # If the input array contains all ODD numbers,
   #   find_even should return the empty array

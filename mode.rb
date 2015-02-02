@@ -16,9 +16,15 @@
 # Break it down as clearly as you can in your own head first.
 
 def mode(array)
+  mode_hash = Hash.new { 0 }
+  array.each do |elem|
+    mode_hash[elem] += 1
+  end
+
+  result = mode_hash.max_by { |_k, v| v } [0]
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   # Write some of your own "sanity checks" here.  Each check should look like:
   #
   #  p mode([...data points...]) == ...expected return value...
@@ -49,4 +55,6 @@ if __FILE__ == $0
   p mode(['a', 'a', 'a', 'b']) == 'a'
   p mode(['b', 'a', 'a', 'a']) == 'a'
   p mode(['a', 'b', 'a', 'a']) == 'a'
+
+  p mode([1, 1, 1, 2, 3, 4, 1]) == 1
 end
