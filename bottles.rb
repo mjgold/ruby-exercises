@@ -55,4 +55,6 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   bottles(5)
+  # bottles(1) # Should only print one round
+  # bottles(0) # Should print no rounds
 end
