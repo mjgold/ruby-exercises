@@ -41,15 +41,15 @@ Take one down, pass it around, \
 end
 
 def bottle_string(num_bottles)
-  case
-  when num_bottles > 1
-    "#{num_bottles} bottles"
-  when num_bottles == 1
+  fail('Number of bottles should not be less than 0!') if num_bottles < 0
+
+  case num_bottles
+  when 1
     '1 bottle'
-  when num_bottles == 0
+  when 0
     'no bottles'
   else
-    fail('Number of bottles should not be less than 0!')
+    "#{num_bottles} bottles"
   end
 end
 
