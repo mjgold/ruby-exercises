@@ -41,7 +41,8 @@ Take one down, pass it around, \
 end
 
 def bottle_string(num_bottles)
-  fail('Number of bottles should not be less than 0!') if num_bottles < 0
+  fail(ArgumentError, "Number of bottles should not be less than 0!, \
+got #{num_bottles.inspect}") if num_bottles < 0
 
   case num_bottles
   when 1
@@ -57,4 +58,5 @@ if __FILE__ == $PROGRAM_NAME
   bottles(5)
   # bottles(1) # Should only print one round
   # bottles(0) # Should print no rounds
+  # bottles(-1) # Should print no rounds
 end
