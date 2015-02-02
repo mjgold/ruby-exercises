@@ -27,29 +27,32 @@
 #   etc.
 
 def bottles(start_number)
+  start_number.downto(1) do |num_bottles|
+    print_bottle_round(num_bottles)
+  end
 end
 
-if __FILE__ == $0
-  # What *should* this print?
+def print_bottle_round(num_bottles)
+  puts "\
+#{bottle_string(num_bottles)} of beer on the wall, \
+#{bottle_string(num_bottles)} of beer.
+Take one down, pass it around, \
+#{bottle_string(num_bottles - 1)} of beer on the wall!\n\n"
+end
+
+def bottle_string(num_bottles)
+  case
+  when num_bottles > 1
+    "#{num_bottles} bottles"
+  when num_bottles == 1
+    '1 bottle'
+  when num_bottles == 0
+    'no bottles'
+  else
+    fail('Number of bottles should not be less than 0!')
+  end
+end
+
+if __FILE__ == $PROGRAM_NAME
   bottles(5)
 end
-
-# Hint #1:
-# The "downto" method will be useful.
-#
-# See http://ruby-doc.org/core-2.0/Integer.html#method-i-downto or try this:
-#
-#   puts "Counting down..."
-#   10.downto(1) do |i|
-#     puts i
-#   end
-#   puts "Blast off!"
-
-# Hint #2:
-# The priority is getting this method to work, even if your code is messy, but
-# try to isolate the part of each line that changes depending on the number of
-# bottles and move it to its own method.  This makes handling the
-# singular/plural logic much easier.
-#
-# Yes, that means you'll need to define another method here on your own. If you
-# decide to try this approach, give it a sensible name. :)
