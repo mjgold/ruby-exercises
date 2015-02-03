@@ -20,16 +20,32 @@
 # insert the commas?  Which comma would you insert first?
 
 def commas(num)
+  sign = num < 0 ? '-' : ''
+
+  num_array = num.abs.to_s.split('.')
+  integer_part = num_array[0].to_s
+  fractional_part = num_array[1].nil? ? '' : '.' + num_array[1].to_s
+
+  integer_part = integer_part.reverse.scan(/.{1,3}/)
+  integer_part_with_commas = integer_part.join(',').reverse
+
+  sign + integer_part_with_commas + fractional_part
 end
 
 if __FILE__ == $0
-  # What are the common cases?  What are the corner cases?
-  # Your sanity checks should look like
-  #   p commas(input) == ...expected return value...
-end
+  puts commas(123) == '123'
+  puts commas(1_234) == '1,234'
+  puts commas(12_345) == '12,345'
+  puts commas(1_234_567) == '1,234,567'
 
-# Hint #1
-# Use .to_s to convert a number to a string.  That is,
-#
-#  5.to_s   == "5"
-#  100.to_s == "100"
+  puts commas(-123) == '-123'
+  puts commas(-1_234) == '-1,234'
+  puts commas(-12_345) == '-12,345'
+  puts commas(-1_234_567) == '-1,234,567'
+
+  puts commas(-123.25) == '-123.25'
+  puts commas(-1_234.501) == '-1,234.501'
+  puts commas(-12_345.7_502) == '-12,345.7502'
+
+  puts commas(0) == '0'
+end
